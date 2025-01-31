@@ -16,8 +16,8 @@ To set up the project locally, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/notyouriiz/yolo-waste-monitoring.git
-   cd yolo-waste-monitoring
+   git clone https://github.com/notyouriiz/Waste_Watcher.git
+   cd Waste_Watcher
    ```
 
 2. **Install Dependencies**:
