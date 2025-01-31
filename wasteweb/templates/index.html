@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Watcher</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            Waste Watcher
+        </div>
+        <ul class="navbar-links">
+            <li><a href="#video-section">Video</a></li>
+            <li><a href="#map-section">Geo Map</a></li>
+            <li><a href="#assign-section">Assigning</a></li>
+        </ul>
+        <div class="navbar-calendar">
+            <input type="text" id="calendar" placeholder="Select Date">
+        </div>
+    </nav>
+
+    <!-- Notification Section -->
+    <section id="notification-section">
+        <h2>Status Notifikasi</h2>
+        <div id="notification" class="notification"></div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video-section">
+        <h1>Real-time Object Detection</h1>
+        <img src="{{ url_for('video_feed') }}" width="720" height="480" class="video-feed">
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
+    <script>
+        flatpickr("#calendar", {
+            enableTime: false,
+            dateFormat: "Y-m-d",
+        });
+
+        function cekSampah() {
+            fetch('/deteksi_sampah')
+            .then(response => response.json())
+            .then(data => {
+                let notification = document.getElementById("notification");
+                
+                if (data.notifikasi) {
+                    notification.innerHTML = `<strong>${data.notifikasi}</strong>`;
+                    
+                    if (data.notifikasi.includes("Total sampah sudah melebihi batas, Segera lakukan pengambilan!")) {
+                        notification.classList.add('red');
+                        notification.classList.remove('green');
+                    } else {
+                        notification.classList.add('green');
+                        notification.classList.remove('red');
+                    }
+                } else {
+                    notification.innerHTML = "Sampah Belum Melebihi Batas";
+                    notification.classList.remove('red', 'green');
+                }
+            });
+        }
+
+        setInterval(cekSampah, 5000);  
+    </script>
+</body>
+</html>
