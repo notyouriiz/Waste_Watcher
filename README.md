@@ -20,8 +20,8 @@ To set up the project locally, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/waste-detection-system.git
-   cd waste-detection-system
+   git clone https://github.com/notyouriiz/Waste_Watcher.git
+   cd Waste_Watcher
    ```
 
 2. **Install Dependencies**:
@@ -55,12 +55,6 @@ waste-detection-system/
 │   └── index.html          # Main HTML page
 └── static/                 # Directory for static files (CSS, JS)
 ```
-
-## Contributing
-Contributions are welcome! Please fork this repository and submit a pull request with your improvements or bug fixes.
-
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgements
 - Thanks to Ultralytics for their YOLO model.
