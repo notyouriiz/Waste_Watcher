@@ -1,5 +1,6 @@
 # Waste Watcher: Intelligence Waste Control System
-<img src="Mockup/Mockup.png" alt="Waste Watcher Mockup Design"></img>
+<img src="Mockup/Project Mockup.png" alt="Waste Watcher Mockup Design"></img>
+---
 ## Overview
 The Waste Detection System is a web application built with Flask that utilizes the YOLO (You Only Look Once) model for real-time object detection. The primary objective of this project is to monitor water bodies, such as rivers, for trash accumulation. By detecting various types of waste, the application provides notifications when the amount of trash exceeds a predetermined threshold, thereby aiding in environmental conservation efforts.
 
